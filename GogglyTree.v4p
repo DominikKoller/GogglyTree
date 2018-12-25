@@ -1,0 +1,343 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="C:\Users\mail\Desktop\GogglyTree\GogglyTree.v4p" systemname="GogglyTree" filename="C:\Users\mail\Desktop\GogglyTree\GogglyTree.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="2472" top="1254" width="10092" height="9642">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="38.1.0">
+   </PACK>
+   <NODE systemname="Kinect (Devices Microsoft DX9)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.MSKinect.dll" nodename="Kinect (Devices Microsoft DX9)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="5112" top="1932" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5112" top="1932" width="1200" height="1200">
+   </BOUNDS>
+   <PIN pinname="Reset" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <PIN pinname="Kinect Runtime" visible="1">
+   </PIN>
+   <PIN pinname="Enable Color" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Motor Angle" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Enable Depth" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Enable Skeleton" visible="1">
+   </PIN>
+   <PIN pinname="Enable Skeleton Smoothing" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="1">
+   <BOUNDS type="Box" left="6804" top="924" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6804" top="924" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Reset">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="2">
+   <BOUNDS type="Box" left="6384" top="480" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6384" top="480" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
+   </LINK>
+   <NODE systemname="RGB (Kinect Microsoft DX9)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.MSKinect.dll" nodename="RGB (Kinect Microsoft DX9)" componentmode="Hidden" id="3" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="930" top="3726" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="930" top="3726" width="1200" height="1200">
+   </BOUNDS>
+   <PIN pinname="Kinect Runtime" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Kinect Runtime" dstnodeid="3" dstpinname="Kinect Runtime" hiddenwhenlocked="1">
+   </LINK>
+   <NODE systemname="Preview (EX9.Texture)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\misc\Preview\Preview (EX9.Texture).v4p" nodename="Preview (EX9.Texture)" componentmode="Hidden" id="4" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="924" top="4092" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Texture Out" dstnodeid="4" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="7" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="948" top="5778" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="948" top="5778" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="8832" top="0" width="9168" height="11484">
+   </BOUNDS>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="Group (EX9)" id="8" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="948" top="5340" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="948" top="5340" width="2400" height="1800">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Layer" dstnodeid="7" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="AxisAndGrid (DX9)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.94.50-gf563f1b382\vvvv\nodes\modules\DX9\AxisAndGrid (DX9).v4p" nodename="AxisAndGrid (DX9)" componentmode="Hidden" id="9" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="972" top="4656" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Layer" dstnodeid="8" dstpinname="Layer 1">
+   </LINK>
+   <NODE systemname="Camera (Transform Orbit)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.94.50-gf563f1b382\vvvv\nodes\modules\Camera (Transform Orbit).v4p" nodename="Camera (Transform Orbit)" componentmode="Hidden" id="10" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2022" top="5346" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="View" dstnodeid="7" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Projection" dstnodeid="7" dstpinname="Projection">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13">
+   <BOUNDS type="Box" left="5454" top="696" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5454" top="696" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enable Color">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enable Depth">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enable Skeleton">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enable Skeleton Smoothing">
+   </LINK>
+   <NODE systemname="NodeList (VVVV)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="NodeList (VVVV)" componentmode="Hidden" id="-13">
+   <BOUNDS type="Node" left="912" top="822" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="912" top="822" width="1200" height="1200">
+   </BOUNDS>
+   <PIN pinname="Search Paths" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="21">
+   <BOUNDS type="Box" left="912" top="450" width="798" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="912" top="450" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="Line3dClosestPoint">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values=".">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Directory">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Output String" dstnodeid="-13" dstpinname="Search Paths">
+   </LINK>
+   <NODE systemname="Servo" filename="Servo.v4p" nodename="Servo.v4p" componentmode="Hidden" id="40">
+   <BOUNDS type="Node" left="3784" top="4041" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1574" top="1951" width="4420" height="4180">
+   </BOUNDS>
+   <BOUNDS type="Window" left="2154" top="618" width="6432" height="7128">
+   </BOUNDS>
+   <PIN pinname="Value" visible="1">
+   </PIN>
+   <PIN pinname="Servo2 FromTo" visible="1">
+   </PIN>
+   <PIN pinname="Servo1 FromTo" visible="1">
+   </PIN>
+   <PIN pinname="Servo Values" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" systemname="IOBox (String)" componentmode="InABox" id="44" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1128" top="6372" width="714" height="228">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1128" top="6372" width="1554" height="528">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="DEBUG">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="16">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" systemname="IOBox (String)" componentmode="InABox" id="45" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="930" top="1314" width="714" height="228">
+   </BOUNDS>
+   <BOUNDS type="Box" left="930" top="1314" width="1932" height="504">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="CONTRIBS">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="16">
+   </PIN>
+   </NODE>
+   <NODE systemname="FollowMe" filename="FollowMe.v4p" componentmode="Hidden" id="58" nodename="FollowMe.v4p">
+   <BOUNDS type="Node" left="5106" top="2622" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5106" top="2622" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="2838" top="678" width="9000" height="8814">
+   </BOUNDS>
+   <PIN pinname="Kinect Runtime" visible="1">
+   </PIN>
+   <PIN pinname="Servos values" visible="1">
+   </PIN>
+   <PIN pinname="Debug Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Kinect Runtime" dstnodeid="58" dstpinname="Kinect Runtime">
+   </LINK>
+   <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="59">
+   <BOUNDS type="Node" left="3780" top="3450" width="2724" height="270">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Switch" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="58" srcpinname="Servos values" dstnodeid="59" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Schiel" filename="Schiel.v4p" componentmode="Hidden" id="60" nodename="Schiel.v4p">
+   <BOUNDS type="Node" left="6438" top="2622" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6438" top="2622" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7578" top="1410" width="9000" height="6000">
+   </BOUNDS>
+   <PIN pinname="Servo Values" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Control" filename="Control.v4p" componentmode="InAWindow" id="61" nodename="Control.v4p">
+   <BOUNDS type="Node" left="3780" top="2622" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3780" top="2622" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="5700" top="2658" width="4818" height="6000">
+   </BOUNDS>
+   <PIN pinname="Scene Switch" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AudioEngine (VAudio)" filename="%VVVV%\packs\VVVV.Audio\nodes\plugins\VVVV.Audio.Nodes.dll" nodename="AudioEngine (VAudio)" componentmode="Hidden" id="62">
+   <BOUNDS type="Node" left="924" top="7752" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="924" top="7752" width="1200" height="1200">
+   </BOUNDS>
+   <PIN pinname="Play" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="63">
+   <BOUNDS type="Box" left="930" top="7110" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="930" top="7110" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="63" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Play">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Servo Values" dstnodeid="59" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="59" srcpinname="Output" dstnodeid="40" dstpinname="Servo Values">
+   </LINK>
+   <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="64">
+   <BOUNDS type="Node" left="8382" top="3666" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8382" top="3666" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="2424" top="714" width="6192" height="5028">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="61" srcpinname="Scene Switch" dstnodeid="59" dstpinname="Switch">
+   </LINK>
+   <NODE systemname="Subtract (Color)" nodename="Subtract (Color)" componentmode="Hidden" id="65">
+   <BOUNDS type="Node" left="6948" top="3330" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="66">
+   <BOUNDS type="Node" left="6012" top="4680" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6012" top="4680" width="798" height="240">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="67">
+   <BOUNDS type="Node" left="6012" top="6480" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6012" top="6480" width="798" height="240">
+   </BOUNDS>
+   </NODE>
+   </PATCH>
